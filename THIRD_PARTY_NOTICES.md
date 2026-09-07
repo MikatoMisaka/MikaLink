@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-LanChat is distributed under GPL-3.0-or-later for the project code. Third-party
+MikaLink is distributed under GPL-3.0-or-later for the project code. Third-party
 packages, native libraries, and services retain their own licenses. The exact
 resolved versions are recorded in `pubspec.lock`.
 
@@ -39,7 +39,7 @@ prepared; consult each linked package before redistributing a modified build.
   dependency. Its terms are provided by Google and remain separate from this
   project license.
 - PigHub is an external online sticker service. Its API, metadata, and image
-  content are not part of the LanChat copyright grant. Users and distributors
+  content are not part of the MikaLink copyright grant. Users and distributors
   must follow PigHub's current terms.
 - The Matrix Dart SDK is licensed under AGPL-3.0-or-later. Its transitive
   components, including vodozemac, retain their own upstream licenses.

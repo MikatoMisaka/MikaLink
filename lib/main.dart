@@ -82,7 +82,7 @@ class _LanChatAppState extends State<LanChatApp> with WidgetsBindingObserver {
     return AppStateScope(
       notifier: _appState,
       child: MaterialApp(
-        title: 'LanChat',
+        title: 'MikaLink',
         scaffoldMessengerKey: _scaffoldMessengerKey,
         debugShowCheckedModeBanner: false,
         theme: LanChatTheme.light(),

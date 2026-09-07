@@ -1,6 +1,6 @@
-# LanChat
+# MikaLink
 
-LanChat 是一个面向熟人小群组的加密聊天软件。
+MikaLink 是一个面向熟人小群组的加密聊天软件。
 
 - **局域网版**：设备直接配对，适合家庭、办公室和临时网络。
 - **服务器版**：自建服务器，支持跨网络聊天、好友申请、设备审批、图片和小文件。
@@ -11,8 +11,8 @@ LanChat 是一个面向熟人小群组的加密聊天软件。
 
 服务器聊天使用服务器版客户端：
 
-- Android：`release/LanChat-server-android.apk`
-- Windows：复制整个 `release/windows-server/` 目录，运行其中的 `lanchat.exe`
+- Android：`release/MikaLink-server-android.apk`
+- Windows：复制整个 `release/mikalink-server/` 目录，运行其中的 `mikalink.exe`
 
 基础版客户端不包含服务器入口，不用于服务器聊天。
 
@@ -43,7 +43,7 @@ bash start.sh
 CHAT_DOMAIN=chat.example.com
 ADMIN_DOMAIN=admin.chat.example.com
 SYNAPSE_SERVER_NAME=chat.example.com
-LANCHAT_SERVER_NAME=My LanChat Server
+LANCHAT_SERVER_NAME=MikaLink Server
 ```
 
 `SYNAPSE_SERVER_NAME` 只能填写域名或域名加端口，不能包含 `https://`、路径或空格。
@@ -192,4 +192,4 @@ dart test
 
 ## 许可证
 
-LanChat 自有代码使用 GNU General Public License v3.0 或更高版本，详见 [`LICENSE`](LICENSE)。Matrix、Synapse、Caddy、Vodozemac、WinToast 及其他依赖保留各自的许可证。
+MikaLink 自有代码使用 GNU General Public License v3.0 或更高版本，详见 [`LICENSE`](LICENSE)。Matrix、Synapse、Caddy、Vodozemac、WinToast 及其他依赖保留各自的许可证。

@@ -1,10 +1,10 @@
-# LanChat Server Edition 实现计划（旧版）
+# MikaLink Server Edition 实现计划（旧版）
 
 > **说明：** 此计划已被 `docs/superpowers/plans/2026-09-06-lightweight-server.md` 取代。不要按本文件继续实现旧的 FCM、直接 Matrix 客户端和复杂管理员配置流程。
 
 **目标：** 为现有 Flutter 客户端增加 Matrix/Synapse 自建服务器版，并提供可复现的 Docker 部署和管理员控制台。
 
-**架构：** 远程聊天使用 Matrix Dart SDK 与 Synapse 官方镜像；LanChat 保留现有安全 P2P 传输。一个远程适配器将 Matrix 房间事件转换为本地 `Message` 视图，路由层按 LAN 可达性选择通道。独立控制服务只处理接入码、管理配置和统计，不实现第二套聊天协议。
+**架构：** 远程聊天使用 Matrix Dart SDK 与 Synapse 官方镜像；MikaLink 保留现有安全 P2P 传输。一个远程适配器将 Matrix 房间事件转换为本地 `Message` 视图，路由层按 LAN 可达性选择通道。独立控制服务只处理接入码、管理配置和统计，不实现第二套聊天协议。
 
 **技术栈：** Flutter/Dart、Matrix Dart SDK、Synapse、Dart Shelf 控制服务、SQLite 数据卷、Caddy、Flutter Local Notifications。
 

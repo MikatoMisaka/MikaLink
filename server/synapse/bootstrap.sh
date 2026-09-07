@@ -110,7 +110,7 @@ payload = json.dumps({
     'type': 'm.login.password',
     'identifier': {'type': 'm.id.user', 'user': 'lanchat-control'},
     'password': password,
-    'initial_device_display_name': 'LanChat control service',
+    'initial_device_display_name': 'MikaLink control service',
 }).encode('utf-8')
 request = urllib.request.Request(
     'http://synapse:8008/_matrix/client/v3/login',
@@ -144,4 +144,4 @@ if ! login_admin; then
   login_admin
 fi
 
-echo "LanChat internal Matrix bridge is ready."
+echo "MikaLink internal Matrix bridge is ready."

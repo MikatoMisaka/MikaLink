@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     environment:
       LANCHAT_CONFIG_PATH: /data/lanchat-control.json
-      LANCHAT_SERVER_NAME: ${LANCHAT_SERVER_NAME:-LanChat Server}
+      LANCHAT_SERVER_NAME: ${LANCHAT_SERVER_NAME:-MikaLink Server}
       LANCHAT_BOOTSTRAP_ADMIN_PASSWORD: ${LANCHAT_BOOTSTRAP_ADMIN_PASSWORD:-}
       LANCHAT_BOOTSTRAP_ACCESS_CODE: ${LANCHAT_BOOTSTRAP_ACCESS_CODE:-}
       SYNAPSE_INTERNAL_URL: http://synapse:8008

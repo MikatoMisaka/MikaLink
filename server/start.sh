@@ -100,7 +100,7 @@ fi
 "${compose[@]}" up -d --build
 "${compose[@]}" ps
 
-printf '\nLanChat 服务已启动。\n'
+printf '\nMikaLink 服务已启动。\n'
 if [[ "$MODE" == "direct" ]]; then
   printf '客户端地址：当前服务器 IP 加 .env 中的 LANCHAT_CONTROL_PORT（默认 8080）。\n'
 else

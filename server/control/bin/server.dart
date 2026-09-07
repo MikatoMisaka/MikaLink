@@ -13,14 +13,14 @@ Future<void> main() async {
     accessCode: _optionalEnvironment('LANCHAT_BOOTSTRAP_ACCESS_CODE'),
   );
   if (bootstrapCode != null) {
-    stdout.writeln('LanChat first-run setup code: $bootstrapCode');
+    stdout.writeln('MikaLink first-run setup code: $bootstrapCode');
     stdout.writeln(
       'Open the control room and set an administrator password. '
       'This code is shown only once.',
     );
   }
   final serverName =
-      Platform.environment['LANCHAT_SERVER_NAME'] ?? 'LanChat Server';
+      Platform.environment['LANCHAT_SERVER_NAME'] ?? 'MikaLink Server';
   final matrixServerName = _optionalEnvironment('SYNAPSE_SERVER_NAME');
   if (matrixServerName == null || !isValidMatrixServerName(matrixServerName)) {
     stderr.writeln(
@@ -62,7 +62,7 @@ Future<void> main() async {
         8080,
   );
   stdout.writeln(
-    'LanChat control listening on ${httpServer.address.host}:${httpServer.port}',
+    'MikaLink control listening on ${httpServer.address.host}:${httpServer.port}',
   );
 }
 

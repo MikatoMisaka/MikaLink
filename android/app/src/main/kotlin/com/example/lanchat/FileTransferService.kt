@@ -42,7 +42,7 @@ class FileTransferService : Service() {
                 Notification.Builder(this)
             }
         val notification = builder
-            .setContentTitle("LanChat 正在接收文件")
+            .setContentTitle("MikaLink 正在接收文件")
             .setContentText("保持后台运行中，以防传输中断")
             .setSmallIcon(android.R.drawable.stat_sys_download)
             .setOngoing(true)

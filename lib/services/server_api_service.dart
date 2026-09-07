@@ -59,7 +59,7 @@ class ServerInfo {
     final rawName = data['serverName'];
     final name = rawName is String ? rawName.trim() : '';
     return ServerInfo(
-      serverName: name.isEmpty ? 'LanChat Server' : name,
+      serverName: name.isEmpty ? 'MikaLink Server' : name,
       setupRequired: data['setupRequired'] == true,
       encryptionMode: data['encryptionMode'] == 'readable'
           ? 'readable'
@@ -404,7 +404,8 @@ class ServerApiService {
       'daily_attachment_quota_exceeded' => '今天的附件流量额度已用完。',
       'file_quota_exceeded' => '今天的附件流量额度已用完。',
       'admin_setup_required' => '服务器尚未完成首次设置。',
-      'matrix_server_name_invalid' => '服务器的 Matrix 域名配置无效，请检查 SYNAPSE_SERVER_NAME。',
+      'matrix_server_name_invalid' =>
+        '服务器的 Matrix 域名配置无效，请检查 SYNAPSE_SERVER_NAME。',
       _ when raw.isNotEmpty => raw,
       _ => '服务器请求失败。',
     };

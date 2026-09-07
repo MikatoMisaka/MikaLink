@@ -1,4 +1,4 @@
-# LanChat Server Edition Design
+# MikaLink Server Edition Design
 
 日期：2026-09-05
 状态：已被 `2026-09-06-lightweight-server-design.md` 取代
@@ -9,9 +9,9 @@
 
 ## 架构决定
 
-不从零重写聊天服务器。远程通信基于成熟的 Matrix 协议和 Synapse 官方服务器镜像；Flutter 客户端使用 Matrix Dart SDK。LanChat 自己只负责版本开关、局域网与远程路由、好友体验、服务器接入码和管理控制层。管理员 Web 控制台作为轻量控制服务与 Synapse Admin API 对接，而不是复制 Synapse 源码。
+不从零重写聊天服务器。远程通信基于成熟的 Matrix 协议和 Synapse 官方服务器镜像；Flutter 客户端使用 Matrix Dart SDK。MikaLink 自己只负责版本开关、局域网与远程路由、好友体验、服务器接入码和管理控制层。管理员 Web 控制台作为轻量控制服务与 Synapse Admin API 对接，而不是复制 Synapse 源码。
 
-Docker 部署提供 Synapse、LanChat 控制服务和 Caddy。默认面向 1-20 人的小型服务器，使用持久化数据卷；生产部署通过域名和 HTTPS/WSS 访问。
+Docker 部署提供 Synapse、MikaLink 控制服务和 Caddy。默认面向 1-20 人的小型服务器，使用持久化数据卷；生产部署通过域名和 HTTPS/WSS 访问。
 
 ## 版本
 
@@ -59,4 +59,4 @@ Docker 部署提供 Synapse、LanChat 控制服务和 Caddy。默认面向 1-20 
 
 ## 开源和许可证
 
-LanChat 自有代码使用 GPL-3.0-or-later。Matrix Dart SDK、Synapse、Caddy 和其他组件保留各自许可证，并在第三方声明中列出。仓库发布源码、Docker 配置和 GHCR 构建流程，不发布任何真实密码、接入码或用户数据。
+MikaLink 自有代码使用 GPL-3.0-or-later。Matrix Dart SDK、Synapse、Caddy 和其他组件保留各自许可证，并在第三方声明中列出。仓库发布源码、Docker 配置和 GHCR 构建流程，不发布任何真实密码、接入码或用户数据。

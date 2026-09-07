@@ -80,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
       await Share.shareXFiles([
         XFile(f1.path),
         XFile(f2.path),
-      ], text: 'LanChat 聊天记录');
+      ], text: 'MikaLink 聊天记录');
     } catch (e) {
       _toast('导出失败: $e');
     }
@@ -197,7 +197,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         leading: Icon(Icons.folder_outlined),
                         title: Text('应用专用文件目录'),
                         subtitle: Text(
-                          '接收文件由 LanChat 管理，避免路径穿越和误覆盖。'
+                          '接收文件由 MikaLink 管理，避免路径穿越和误覆盖。'
                           '需要取出文件时，在聊天中使用“另存为”。',
                           style: TextStyle(fontSize: 12),
                         ),

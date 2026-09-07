@@ -57,10 +57,10 @@ class MainActivity : FlutterActivity() {
             manager.createNotificationChannel(
                 NotificationChannel(
                     localNotificationChannelId,
-                    "LanChat 消息",
+                    "MikaLink 消息",
                     NotificationManager.IMPORTANCE_HIGH
                 ).apply {
-                    description = "LanChat 新消息提醒"
+                    description = "MikaLink 新消息提醒"
                 }
             )
         }

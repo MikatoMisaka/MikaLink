@@ -123,6 +123,10 @@ class ControlServer {
         (request) =>
             _asset(request, 'app.js', 'text/javascript; charset=utf-8'),
       )
+      ..get(
+        '/favicon.svg',
+        (request) => _asset(request, 'favicon.svg', 'image/svg+xml'),
+      )
       ..get('/healthz', _health)
       ..post('/_lanchat/v1/access/verify', _verifyAccess)
       ..get('/_lanchat/v1/access/authorize', _authorizeAccess)
@@ -309,7 +313,7 @@ class ControlServer {
         },
       );
     }
-    return _json({'name': 'LanChat Control', 'status': 'ok'});
+    return _json({'name': 'MikaLink Control', 'status': 'ok'});
   }
 
   Future<Response> _asset(
@@ -364,7 +368,7 @@ class ControlServer {
   Future<Response> _authorizeAccess(Request request) async {
     final code = request.headers['x-lanchat-access-code'];
     if (code == null || !await store.verifyAccessCode(code)) {
-      return Response.forbidden('Invalid LanChat access code.');
+      return Response.forbidden('Invalid MikaLink access code.');
     }
     return Response.ok('ok');
   }
@@ -1159,7 +1163,7 @@ class SynapseAdminClient implements MatrixGateway {
         'type': 'm.login.password',
         'identifier': {'type': 'm.id.user', 'user': username},
         'password': password,
-        'initial_device_display_name': 'LanChat',
+        'initial_device_display_name': 'MikaLink',
       }),
     );
     if (response.statusCode != 200) {

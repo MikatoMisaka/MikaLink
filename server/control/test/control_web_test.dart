@@ -28,6 +28,9 @@ void main() {
     final js = await server.handler(
       Request('GET', Uri.parse('http://localhost/app.js')),
     );
+    final favicon = await server.handler(
+      Request('GET', Uri.parse('http://localhost/favicon.svg')),
+    );
 
     expect(html.statusCode, 200);
     final htmlBody = await html.readAsString();
@@ -50,6 +53,8 @@ void main() {
     expect(jsBody, contains('maxFileBytes'));
     expect(jsBody, contains('/api/v1/admin/invitations'));
     expect(jsBody, contains('data-action="kick-user"'));
+    expect(favicon.statusCode, 200);
+    expect(await favicon.readAsString(), contains('>MikaLink</title>'));
     await directory.delete(recursive: true);
   });
 }

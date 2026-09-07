@@ -26,14 +26,14 @@ if (-not (Test-Path -LiteralPath $releaseDirectory)) {
 
 if ($Platform -eq 'android') {
     $source = Join-Path $root 'build\app\outputs\flutter-apk\app-release.apk'
-    $target = Join-Path $releaseDirectory "LanChat-$Edition-android.apk"
+    $target = Join-Path $releaseDirectory "MikaLink-$Edition-android.apk"
     Copy-Item -LiteralPath $source -Destination $target -Force
     Write-Output "Built $target"
     exit 0
 }
 
 $sourceDirectory = Join-Path $root 'build\windows\x64\runner\Release'
-$targetDirectory = Join-Path $releaseDirectory "windows-$Edition"
+$targetDirectory = Join-Path $releaseDirectory "mikalink-$Edition"
 if (-not (Test-Path -LiteralPath $targetDirectory)) {
     New-Item -ItemType Directory -Path $targetDirectory | Out-Null
 }

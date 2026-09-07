@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">MikaLink</title>
+  <desc id="desc">A simple linked M mark for MikaLink.</desc>
+  <rect width="512" height="512" rx="112" fill="#173b31"/>
+  <path d="M126 348V166c0-25 34-34 47-11l83 143 83-143c13-23 47-14 47 11v182" fill="none" stroke="#75c59c" stroke-linecap="round" stroke-linejoin="round" stroke-width="38"/>
+  <circle cx="126" cy="348" r="21" fill="#e7bd67"/>
+  <circle cx="386" cy="348" r="21" fill="#e7bd67"/>
+</svg>

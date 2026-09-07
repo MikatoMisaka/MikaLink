@@ -1,4 +1,4 @@
-# LanChat 安全传输实现计划
+# MikaLink 安全传输实现计划
 
 > **面向 AI 代理的工作者：** 必需子技能：使用 subagent-driven-development 或 executing-plans 逐任务实现此计划。步骤使用复选框跟踪。
 

@@ -1,10 +1,10 @@
-# LanChat 轻量服务器版实现计划
+# MikaLink 轻量服务器版实现计划
 
 > **面向 AI 代理的工作者：** 使用已批准的 lightweight-server 设计逐任务实现。客户端、控制服务和管理页面必须保持简单；不要把 Matrix/Synapse 内部配置暴露给用户。
 
 **目标：** 将现有服务器版骨架改为邀请码申请、管理员审批、用户名密码登录和单入口远程聊天的轻量 MVP。
 
-**架构：** LanChat 控制服务负责申请、审批、账号会话、设备和消息 API；Matrix/Synapse 如保留只在 Docker 内部运行。客户端通过 LanChat API 获取会话和同步数据，不再直接要求用户理解 Matrix 账号。管理 Web 页面使用无框架 HTML/CSS/JS，首页优先展示状态和待审批申请。
+**架构：** MikaLink 控制服务负责申请、审批、账号会话、设备和消息 API；Matrix/Synapse 如保留只在 Docker 内部运行。客户端通过 MikaLink API 获取会话和同步数据，不再直接要求用户理解 Matrix 账号。管理 Web 页面使用无框架 HTML/CSS/JS，首页优先展示状态和待审批申请。
 
 **技术栈：** Flutter/Dart、Dart Shelf、Matrix/Synapse 内部后端、SQLite/文件数据卷、Caddy 可选 HTTPS。
 
@@ -50,7 +50,7 @@
 - [x] 提交申请并提供登录状态 API；通过后会把会话 token 写入平台安全存储。
 - [x] 远程图片继续限制 20 MB，远程大文件入口保持隐藏。
 - [x] 服务器地址模型允许 HTTP IP，并在客户端添加非 HTTPS 安全提示。
-- [x] 将新的 LanChat 会话作为唯一认证入口；Matrix SDK 仅使用服务器换发的内部 token 同步聊天。
+- [x] 将新的 MikaLink 会话作为唯一认证入口；Matrix SDK 仅使用服务器换发的内部 token 同步聊天。
 
 ### 任务 4：管理员 Web 页面
 

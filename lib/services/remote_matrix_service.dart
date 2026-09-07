@@ -50,7 +50,7 @@ class RemoteServerCapabilities {
     final name = rawName is String ? rawName.trim() : '';
     return RemoteServerCapabilities(
       serverName: name.isEmpty
-          ? 'LanChat Server'
+          ? 'MikaLink Server'
           : name.substring(0, name.length.clamp(0, 128)),
       encryptionMode: data['encryptionMode'] == 'readable'
           ? 'readable'
@@ -267,7 +267,7 @@ class RemoteMatrixService extends ChangeNotifier {
         sqfliteFactory: sqflite.databaseFactory,
       );
       final client = Client(
-        'LanChat ${profile.id}',
+        'MikaLink ${profile.id}',
         database: _database!,
         verificationMethods: const {KeyVerificationMethod.numbers},
       );
@@ -277,7 +277,7 @@ class RemoteMatrixService extends ChangeNotifier {
           newHomeserver: profile.uri,
           newUserID: matrixUserId,
           newDeviceID: matrixDeviceId,
-          newDeviceName: 'LanChat',
+          newDeviceName: 'MikaLink',
         );
       } else {
         await client.init();
@@ -288,7 +288,7 @@ class RemoteMatrixService extends ChangeNotifier {
           AuthenticationTypes.password,
           identifier: AuthenticationUserIdentifier(user: profile.username),
           password: password,
-          initialDeviceDisplayName: 'LanChat',
+          initialDeviceDisplayName: 'MikaLink',
         );
       }
       if (capabilities.e2ee && !client.encryptionEnabled) {

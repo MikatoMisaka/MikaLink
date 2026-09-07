@@ -1,10 +1,10 @@
-# LanChat 服务器版体验修复实施计划
+# MikaLink 服务器版体验修复实施计划
 
 > **面向 AI 代理的工作者：** 使用本计划逐项实现。每个行为变更先写失败测试，再写最小实现；不要改动局域网 P2P 协议。
 
 **目标：** 修复 Android 服务器版的多服务器管理、表单反馈、成员目录、好友申请、设备撤销和远程附件问题，并让 Windows 服务器版与 Android 服务器版行为一致。
 
-**架构：** 服务器配置是本地 profile，在线检测只读服务器健康/能力接口；服务器成员目录和好友状态由 LanChat API 提供，Matrix/Synapse 只作为内部聊天传输层。管理员网页继续使用本地 HTML/CSS/JS，并扩展为成员、设备、邀请码、资源和运行状态控制室。
+**架构：** 服务器配置是本地 profile，在线检测只读服务器健康/能力接口；服务器成员目录和好友状态由 MikaLink API 提供，Matrix/Synapse 只作为内部聊天传输层。管理员网页继续使用本地 HTML/CSS/JS，并扩展为成员、设备、邀请码、资源和运行状态控制室。
 
 **技术栈：** Flutter/Dart、Matrix Dart SDK、Dart Shelf、文件数据卷、Docker Compose、Caddy。
 
@@ -75,7 +75,7 @@
 - 测试：`server/control/test/join_store_test.dart`
 - 测试：`server/control/test/control_api_test.dart`
 
-- [x] 撤销立即使 LanChat session 和对应 Matrix device 失效。
+- [x] 撤销立即使 MikaLink session 和对应 Matrix device 失效。
 - [x] 被撤销设备再次登录时进入 `device_pending`，不永久拒绝。
 - [x] 重新批准后生成新的 Matrix device mapping。
 - [x] 管理员页面区分 pending、approved、revoked。

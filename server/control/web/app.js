@@ -85,7 +85,7 @@
 
   async function loadServerInfo() {
     state.info = await api('/api/v1/server/info');
-    const name = state.info.serverName || 'LanChat Server';
+    const name = state.info.serverName || 'MikaLink Server';
     $('auth-server-status').textContent = state.info.setupRequired ? '等待首次设置' : '服务器在线';
     $('sidebar-server-name').textContent = name;
     $('footer-server-name').textContent = name;
@@ -135,7 +135,7 @@
   }
 
   function renderAll() {
-    const name = state.config?.serverName || state.info?.serverName || 'LanChat Server';
+    const name = state.config?.serverName || state.info?.serverName || 'MikaLink Server';
     const stats = state.stats || {};
     const pending = state.requests.length + state.pendingDevices.length;
     $('server-name').textContent = name;

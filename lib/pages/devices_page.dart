@@ -221,7 +221,7 @@ class _DevicesPageState extends State<DevicesPage> {
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('LanChat', style: TextStyle(fontWeight: FontWeight.w700)),
+            Text('MikaLink', style: TextStyle(fontWeight: FontWeight.w700)),
             Text(
               '局域网私密聊天',
               style: TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
@@ -444,7 +444,7 @@ class _DevicesPageState extends State<DevicesPage> {
             ),
             const SizedBox(height: 8),
             Text(
-              '确保对方打开 LanChat。热点环境下找不到时，\n可以使用“添加设备”输入 IP 和端口。',
+              '确保对方打开 MikaLink。热点环境下找不到时，\n可以使用“添加设备”输入 IP 和端口。',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,

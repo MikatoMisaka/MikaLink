@@ -1,8 +1,8 @@
-# LanChat Server Edition
+# MikaLink Server Edition
 
 服务器版由三个服务组成：
 
-- `control`：LanChat 账号、邀请码、入群审批、设备审批、管理员控制室和文件策略。
+- `control`：MikaLink 账号、邀请码、入群审批、设备审批、管理员控制室和文件策略。
 - `synapse`：内部 Matrix 传输层，普通用户不需要接触 Matrix 账号。
 - `caddy`：公网 HTTPS 入口，域名模式使用；直连模式不启动。
 
@@ -27,7 +27,7 @@ bash start.sh
 CHAT_DOMAIN=chat.example.com
 ADMIN_DOMAIN=admin.chat.example.com
 SYNAPSE_SERVER_NAME=chat.example.com
-LANCHAT_SERVER_NAME=My LanChat Server
+LANCHAT_SERVER_NAME=MikaLink Server
 ```
 
 `SYNAPSE_SERVER_NAME` 必须是纯域名或域名加端口，不能写 `https://`、路径或空格。

@@ -64,7 +64,7 @@ class WindowsLocalNotificationPlatform implements LocalNotificationPlatform {
   Future<void> initialize() async {
     final supported = await _toast.initialize(
       aumId: _aumId,
-      displayName: 'LanChat',
+      displayName: 'MikaLink',
       iconPath: '',
       clsid: _clsid,
     );

@@ -2,7 +2,7 @@
 
 ## Repository
 
-- `LICENSE` identifies LanChat as GPL-3.0-or-later.
+- `LICENSE` identifies MikaLink as GPL-3.0-or-later.
 - `README.md` describes the current client and the self-hosted server edition.
 - `THIRD_PARTY_NOTICES.md` records direct software and external-service notices.
 - `pubspec.lock` remains committed so dependency versions are reproducible.

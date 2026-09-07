@@ -104,7 +104,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
       return;
     }
     if (port <= 0 || port > 65535) {
-      setState(() => _status = '端口不对，请看对方 LanChat 的设置页');
+      setState(() => _status = '端口不对，请看对方 MikaLink 的设置页');
       return;
     }
     await _pairWith(ip, port);
@@ -118,7 +118,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
     if (!mounted || result is! String) return;
     final parsed = AppState.parseQr(result);
     if (parsed == null) {
-      setState(() => _status = '不是 LanChat 二维码');
+      setState(() => _status = '不是 MikaLink 二维码');
       return;
     }
     final (id, _, port) = parsed;
@@ -249,7 +249,7 @@ class _ScannerPageState extends State<_ScannerPage> {
                 children: [
                   Text(
                     isPerm
-                        ? '相机权限被拒绝\n请在系统设置里允许 LanChat 使用相机'
+                        ? '相机权限被拒绝\n请在系统设置里允许 MikaLink 使用相机'
                         : '相机启动失败\n错误码: ${error.errorCode.name}\n${detailStr.isNotEmpty ? '详情: $detailStr' : ''}\n\n可尝试：重启手机后再试',
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 13),
