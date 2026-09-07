@@ -1137,6 +1137,19 @@ class SynapseAdminClient implements MatrixGateway {
   final String serverName;
   final http.Client _client;
 
+  MatrixGatewayException _upstreamError(
+    String operation,
+    http.Response response,
+  ) {
+    final detail = response.body.trim();
+    final suffix = detail.isEmpty
+        ? ''
+        : ' - ${detail.length > 512 ? detail.substring(0, 512) : detail}';
+    return MatrixGatewayException(
+      '$operation failed: ${response.statusCode}$suffix',
+    );
+  }
+
   @override
   Future<MatrixLogin> loginUser(String username, String password) async {
     final response = await _client.post(
@@ -1223,9 +1236,7 @@ class SynapseAdminClient implements MatrixGateway {
       }),
     );
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw MatrixGatewayException(
-        'Synapse create user failed: ${response.statusCode}',
-      );
+      throw _upstreamError('Synapse create user', response);
     }
   }
 
@@ -1266,9 +1277,7 @@ class SynapseAdminClient implements MatrixGateway {
       body: jsonEncode({'password': password}),
     );
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw MatrixGatewayException(
-        'Synapse reset password failed: ${response.statusCode}',
-      );
+      throw _upstreamError('Synapse reset password', response);
     }
   }
 
@@ -1305,9 +1314,7 @@ class SynapseAdminClient implements MatrixGateway {
       headers: _headers,
     );
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw MatrixGatewayException(
-        'Synapse revoke device failed: ${response.statusCode}',
-      );
+      throw _upstreamError('Synapse revoke device', response);
     }
   }
 
@@ -1320,9 +1327,7 @@ class SynapseAdminClient implements MatrixGateway {
       body: jsonEncode({'erase': false}),
     );
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw MatrixGatewayException(
-        'Synapse deactivate user failed: ${response.statusCode}',
-      );
+      throw _upstreamError('Synapse deactivate user', response);
     }
   }
 
