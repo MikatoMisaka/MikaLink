@@ -302,6 +302,54 @@ void main() {
     await directory.delete(recursive: true);
   });
 
+  test('maps Matrix failures while kicking a user to a non-500 response', () async {
+    final directory = await Directory.systemTemp.createTemp('lanchat-api');
+    final config = ConfigStore(File('${directory.path}/config.json'));
+    await config.initialize(
+      adminPassword: 'admin-password',
+      accessCode: 'group-invite',
+    );
+    final joinStore = JoinStore(
+      File('${directory.path}/joins.json'),
+      config: config,
+    );
+    final request = await joinStore.submit(
+      inviteCode: 'group-invite',
+      username: 'alice',
+      password: 'user-password',
+      displayName: 'Alice',
+      deviceId: 'PHONE',
+    );
+    await joinStore.approve(request.id);
+    final gateway = _FakeMatrixGateway()..failDisable = true;
+    final server = ControlServer(
+      store: config,
+      serverName: 'Example',
+      matrixServerName: 'example',
+      joinStore: joinStore,
+      sessionStore: SessionStore(File('${directory.path}/sessions.json')),
+      matrixGateway: gateway,
+    );
+    final login = await _send(
+      server,
+      'POST',
+      '/api/v1/admin/login',
+      body: {'password': 'admin-password'},
+    );
+    final token = (await _body(login))['token'] as String;
+
+    final response = await _send(
+      server,
+      'POST',
+      '/api/v1/admin/users/alice/kick',
+      token: token,
+    );
+
+    expect(response.statusCode, 502);
+    expect(await joinStore.findUser('alice'), isNotNull);
+    await directory.delete(recursive: true);
+  });
+
   test('kicking a user removes the user and its devices', () async {
     final directory = await Directory.systemTemp.createTemp('lanchat-api');
     final config = ConfigStore(File('${directory.path}/config.json'));

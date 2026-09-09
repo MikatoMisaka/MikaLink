@@ -14,7 +14,7 @@
 
 ```bash
 cd /home
-git clone https://github.com/MikatoMisaka/LanChat.git LanChat
+git clone https://github.com/MikatoMisaka/MikaLink.git LanChat
 cd /home/LanChat/server
 cp .env.example .env
 vi .env

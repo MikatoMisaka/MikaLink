@@ -30,7 +30,7 @@ MikaLink 是一个面向熟人小群组的加密聊天软件。
 从 Git 获取项目：
 
 ```bash
-git clone https://github.com/MikatoMisaka/LanChat.git /home/LanChat
+git clone https://github.com/MikatoMisaka/MikaLink.git /home/LanChat
 cd /home/LanChat/server
 cp .env.example .env
 vi .env

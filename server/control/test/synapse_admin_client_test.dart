@@ -25,6 +25,26 @@ void main() {
     expect(jsonDecode(client.body)['password'], 'new-password');
   });
 
+  test('deactivates a user through the supported Synapse admin API', () async {
+    final client = RecordingHttpClient();
+    final admin = SynapseAdminClient(
+      baseUrl: Uri.parse('https://chat.example.com'),
+      accessToken: 'synapse-admin-token',
+      serverName: 'chat.example.com',
+      client: client,
+    );
+
+    await admin.deactivateUser('@alice:chat.example.com');
+
+    expect(client.method, 'POST');
+    expect(
+      client.url.toString(),
+      'https://chat.example.com/_synapse/admin/v1/deactivate/%40alice%3Achat.example.com',
+    );
+    expect(client.headers['authorization'], 'Bearer synapse-admin-token');
+    expect(jsonDecode(client.body)['erase'], isFalse);
+  });
+
   test("lists and revokes a user's devices", () async {
     final client = RecordingHttpClient(responseBody: '[{"device_id":"PHONE"}]');
     final admin = SynapseAdminClient(

@@ -803,6 +803,13 @@ class ControlServer {
       return _json({'ok': true});
     } on JoinStoreException catch (error) {
       return _json({'error': error.message}, status: 400);
+    } on MatrixGatewayException catch (error) {
+      return _json({'error': error.message}, status: 502);
+    } catch (error) {
+      return _json({
+        'error': 'chat_backend_unavailable',
+        'detail': '$error',
+      }, status: 502);
     }
   }
 
@@ -1325,7 +1332,7 @@ class SynapseAdminClient implements MatrixGateway {
   Future<void> deactivateUser(String userId) async {
     final response = await _client.post(
       baseUrl.resolve(
-        '/_synapse/admin/v2/users/${Uri.encodeComponent(userId)}/deactivate',
+        '/_synapse/admin/v1/deactivate/${Uri.encodeComponent(userId)}',
       ),
       headers: {..._headers, 'content-type': 'application/json'},
       body: jsonEncode({'erase': false}),
